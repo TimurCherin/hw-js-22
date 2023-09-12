@@ -1,9 +1,9 @@
-class Account {
-    constructor({login, email}) {
+                                                        // ex 1
+const Account = function ({login, email}){
         this.login = login;
         this.email = email;
-    }
-    getInfo() {
+
+    this.getInfo = function() {
         return {email: this.email, login: this.login}
     }
 }
@@ -17,17 +17,17 @@ const mango = new Account({
     email: 'poly@mail.com',
     });
     console.log(poly.getInfo()) // Login: Poly, Email: poly@mail.com
-
-class User {
-    constructor({name, age, followers}) {
+                                                        // ex 2
+const User = function ({name, age, followers}){
         this.name = name;
         this.age = age;
         this.followers = followers;
-    }
-    getInfo() {
+    
+    this.getInfo = function() {
         return `${this.name} is ${this.age} years old and has ${this.followers} followers`
     }
 }
+
 const oleg = new User({
     name: 'Oleg',
     age: 2,
@@ -40,26 +40,26 @@ const oleg = new User({
     followers: 17,
     });
     console.log(dany.getInfo()) // User Poly is 3 years old and has 17 followers
-
-class Storage {
-    constructor(item) {
+                                                        // ex 3
+const Storage = function(item){
         this.item = item
-    }
-    getItems(){
+    
+    this.getItems = function(){
         return this.item
     }
-    addItem(newItem) {
+    this.addItem = function(newItem) {
         this.item.push(newItem)
         console.log(this.item) 
         return this.item
     }
-    removeItem(remItem) {
+    this.removeItem = function(remItem) {
         const indexOfRem = this.item.indexOf(remItem)
         this.item.splice(indexOfRem, 1)
         console.log(this.item)
         return this.item
     }
 }
+    
 const storage = new Storage([
     'Нанітоіди',
     'Пролонгер',
